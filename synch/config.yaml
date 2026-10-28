@@ -1,0 +1,27 @@
+name: Synch Server
+version: "0.1.0"
+slug: synch
+url: https://github.com/ik1022/ha-synch-app
+description: End-to-end encrypted Obsidian sync with local SQLite and file storage
+arch:
+  - amd64
+  - aarch64
+stage: experimental
+startup: application
+boot: auto
+init: true
+timeout: 60
+backup: cold
+webui: http://[HOST]:[PORT:8787]/signin
+watchdog: http://[HOST]:[PORT:8787]/health
+ports:
+  8787/tcp: 8787
+options:
+  public_url: ""
+  allowed_emails: []
+  request_timeout_ms: 300000
+schema:
+  public_url: str
+  allowed_emails:
+    - str
+  request_timeout_ms: int(1000,1500000)
