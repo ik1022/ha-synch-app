@@ -4,7 +4,7 @@ def docker(*args):
     return subprocess.check_output(['docker',*args],text=True).strip()
 
 def main():
-    image=sys.argv[1] if len(sys.argv)>1 else 'synch-ha:0.1.0-test'
+    image=sys.argv[1] if len(sys.argv)>1 else 'synch-ha:0.1.1-test'
     name='synch-smoke-'+secrets.token_hex(6)
     volume=name+'-data'; restored=name+'-restored'
     with socket.socket() as s:

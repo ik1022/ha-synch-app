@@ -1,5 +1,5 @@
 name: Synch Server
-version: "0.1.0"
+version: "0.1.1"
 slug: synch
 url: https://github.com/ik1022/ha-synch-app
 description: End-to-end encrypted Obsidian sync with local SQLite and file storage

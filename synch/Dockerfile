@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends git ca-certific
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /src
 RUN git init . && git remote add origin https://github.com/hjinco/synch.git \
-    && git fetch --depth=1 origin 446188f24bb212806b33c43fc8c55e4fae6960ff \
+    && git fetch --depth=1 origin eef0d1d7f3d727aecb820789cab6d7f98e33b4ec \
     && git checkout --detach FETCH_HEAD
 
 FROM node:24-bookworm-slim AS base
@@ -36,7 +36,7 @@ COPY --from=source /src/packages/tsconfig/package.json packages/tsconfig/package
 RUN pnpm install --frozen-lockfile --filter @synch/api... --prod
 
 FROM base AS runtime
-ARG BUILD_VERSION=0.1.0
+ARG BUILD_VERSION=0.1.1
 ARG BUILD_ARCH
 LABEL io.hass.type="app" io.hass.version="${BUILD_VERSION}" io.hass.arch="${BUILD_ARCH}"
 ENV NODE_ENV=production

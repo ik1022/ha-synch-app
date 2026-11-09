@@ -4,7 +4,7 @@ Synch의 Node.js 셀프호스팅 서버를 HAOS App으로 실행하는 패키지
 SQLite와 로컬 디스크 저장소를 사용하며 별도 DB/S3 서버가 필요하지 않습니다.
 웹 화면, HTTP API, WebSocket 동기화가 모두 같은 포트 `8787`을 사용합니다.
 
-**0.1.0 실험 버전.** 실제 HAOS 설치와 ARM 실행은 추가 확인이 필요합니다.
+**0.1.1 실험 버전.** 실제 HAOS 설치와 ARM 실행은 추가 확인이 필요합니다.
 이 패키지는 Osync와 별개의 서버입니다. 기존 Osync 볼트/DB를 직접 가져오지 않습니다.
 
 ## 설치
@@ -40,7 +40,7 @@ Ingress/HA 사이드바 내장 화면은 포함하지 않습니다.
 ## 구성과 검증
 
 - 원본: [hjinco/synch](https://github.com/hjinco/synch), MIT
-- 고정 원본 커밋: `446188f24bb212806b33c43fc8c55e4fae6960ff`
+- 고정 원본 커밋: `eef0d1d7f3d727aecb820789cab6d7f98e33b4ec`
 - Node.js 24 / Debian Bookworm. 원본 Docker 빌드 절차와 pnpm lockfile 사용
 - 최초 실행 시 독립 인증 키 두 개 생성, 재시작·백업 시 보존
 - 서버는 UID/GID 1000으로 실행하며 Home Assistant API 권한을 요청하지 않음
@@ -49,8 +49,8 @@ Ingress/HA 사이드바 내장 화면은 포함하지 않습니다.
 
 ```sh
 node --test tests/launcher.test.mjs
-docker build --build-arg BUILD_ARCH=amd64 -t synch-ha:0.1.0-test synch
-python3 tests/smoke.py synch-ha:0.1.0-test
+docker build --build-arg BUILD_ARCH=amd64 -t synch-ha:0.1.1-test synch
+python3 tests/smoke.py synch-ha:0.1.1-test
 ```
 
 검증 결과는 [VALIDATION.md](VALIDATION.md)에 기록합니다. 테스트는 전용 임시 컨테이너와

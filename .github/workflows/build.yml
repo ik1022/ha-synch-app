@@ -25,5 +25,5 @@ jobs:
         with:
           node-version: '24'
       - run: node --test tests/launcher.test.mjs
-      - run: docker build --build-arg BUILD_ARCH=${{ matrix.arch }} -t synch-ha:0.1.0-test synch
-      - run: python3 tests/smoke.py synch-ha:0.1.0-test
+      - run: docker build --build-arg BUILD_ARCH=${{ matrix.arch }} -t synch-ha:0.1.1-test synch
+      - run: python3 tests/smoke.py synch-ha:0.1.1-test
